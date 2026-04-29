@@ -235,6 +235,15 @@ header.scrolled {
 .post-content-inline p:last-child { margin-bottom: 0; }
 .post-content-inline a { color: var(--accent); }
 .post-content-inline a:hover { color: var(--accent-hover); }
+.post-content-inline blockquote {
+  border-left: 3px solid var(--yellow);
+  padding-left: 1.25rem;
+  margin: 0.75rem 0;
+  font-style: italic;
+  font-size: 1.05em;
+  color: var(--black);
+  line-height: 1.75;
+}
 
 /* ---- SINGLE POST ---- */
 .single-wrap { max-width: var(--reading-max); }
