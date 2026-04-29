@@ -1,5 +1,5 @@
 <article class="post-row">
-  <div class="post-date">{{ .Date.Format "Jan 2" }}</div>
+  <a href="{{ .Permalink }}" class="post-date">{{ .Date.Format "Jan 2" }}</a>
   <div>
     <div class="post-meta">
       {{ with index .Params.tags 0 }}<span class="post-tag">{{ . }}</span><span class="post-sep">·</span>{{ end }}

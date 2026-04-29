@@ -172,7 +172,9 @@ header.scrolled {
   color: var(--gray-5);
   padding-top: 0.2rem;
   flex-shrink: 0;
+  transition: color var(--ease);
 }
+a.post-date:hover { color: var(--black); }
 .post-meta {
   display: flex;
   align-items: center;
