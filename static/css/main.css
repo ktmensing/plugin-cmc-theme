@@ -224,6 +224,17 @@ header.scrolled {
   transition: color var(--ease);
 }
 .post-readmore:hover { color: var(--accent-hover); }
+.post-content-inline {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--gray-7);
+  line-height: 1.75;
+  max-width: 68ch;
+}
+.post-content-inline p { margin-bottom: 0.5rem; }
+.post-content-inline p:last-child { margin-bottom: 0; }
+.post-content-inline a { color: var(--accent); }
+.post-content-inline a:hover { color: var(--accent-hover); }
 
 /* ---- SINGLE POST ---- */
 .single-wrap { max-width: var(--reading-max); }

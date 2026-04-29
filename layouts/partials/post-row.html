@@ -5,8 +5,15 @@
       {{ with index .Params.tags 0 }}<span class="post-tag">{{ . }}</span><span class="post-sep">·</span>{{ end }}
       <span class="post-mins">{{ .ReadingTime }} min read</span>
     </div>
-    <a href="{{ .Permalink }}" class="post-title">{{ .Title }}</a>
-    <p class="post-excerpt">{{ .Summary }}</p>
-    <a href="{{ .Permalink }}" class="post-readmore">Read more →</a>
+
+    {{ with .Title }}<a href="{{ $.Permalink }}" class="post-title">{{ . }}</a>{{ end }}
+
+    {{ $threshold := cond (strings.Contains .Content "<blockquote") 600 300 }}
+    {{ if lt (len (strings.TrimSpace .Plain)) $threshold }}
+      <div class="post-content-inline">{{ .Content }}</div>
+    {{ else }}
+      <p class="post-excerpt">{{ .Summary }}</p>
+      <a href="{{ .Permalink }}" class="post-readmore">Read more →</a>
+    {{ end }}
   </div>
 </article>

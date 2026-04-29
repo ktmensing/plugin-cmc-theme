@@ -1,4 +1,6 @@
 {{ define "main" }}
+{{ $posts := where .Site.RegularPages "Type" "ne" "page" }}
+{{ $paginator := .Paginate $posts }}
 <div class="page-wrap">
   <div class="lede">
     <svg width="32" height="32" viewBox="0 0 54 54" fill="none" aria-hidden="true">
@@ -13,7 +15,7 @@
     <h1 class="lede-wordmark">{{ .Site.Title }}</h1>
   </div>
 
-  {{ range .Paginator.Pages.GroupByDate "2006" }}
+  {{ range $paginator.Pages.GroupByDate "2006" }}
     <div class="year-group">
       <span class="year-label">{{ .Key }}</span>
     </div>
