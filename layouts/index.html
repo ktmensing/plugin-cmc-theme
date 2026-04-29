@@ -1,5 +1,5 @@
 {{ define "main" }}
-{{ $posts := where .Site.RegularPages "Type" "ne" "page" }}
+{{ $posts := where .Site.RegularPages "Type" "post" }}
 {{ $paginator := .Paginate $posts }}
 <div class="page-wrap">
   <div class="lede">
