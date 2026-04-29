@@ -1,0 +1,11 @@
+name = "CMC"
+license = "MIT"
+description = "CuriousMarketers.Club — clean, content-first micro.blog theme"
+homepage = "https://curiousmarketers.club"
+tags = ["blog", "minimal"]
+features = ["blog"]
+min_version = "0.80"
+
+[author]
+  name = "Kyle Mensing"
+  homepage = "https://mensing.digital"

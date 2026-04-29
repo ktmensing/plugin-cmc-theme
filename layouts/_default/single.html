@@ -1,0 +1,41 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <a href="{{ "/" | relURL }}" class="back-link">← Writing</a>
+
+  <div class="single-wrap">
+    <div class="single-meta">
+      {{ with index .Params.tags 0 }}<span class="post-tag">{{ . }}</span><span class="post-sep">·</span>{{ end }}
+      <span class="single-meta-date">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min read</span>
+    </div>
+
+    <h1 class="single-title">{{ .Title }}</h1>
+
+    <div class="yellow-rule"></div>
+
+    <div class="post-body">
+      {{ .Content }}
+    </div>
+
+    <div class="byline">
+      <img src="{{ "img/cmc-mascot.png" | relURL }}" alt="{{ .Site.Params.authorName | default "Kyle Mensing" }}" class="byline-img">
+      <div>
+        <div class="byline-name">{{ .Site.Params.authorName | default "Kyle Mensing" }}</div>
+        <div class="byline-role">{{ .Site.Params.authorRole | default "GTM &amp; GA4 specialist" }} · <a href="https://mensing.digital" target="_blank" rel="noopener">mensing.digital ↗</a></div>
+      </div>
+    </div>
+
+    {{ $others := first 3 (where .Site.RegularPages "Permalink" "ne" .Permalink) }}
+    {{ if $others }}
+    <div class="more-writing">
+      <div class="more-writing-label">More writing</div>
+      {{ range $others }}
+      <a href="{{ .Permalink }}" class="more-writing-row">
+        <span class="more-writing-date">{{ .Date.Format "Jan 2" }}</span>
+        <span class="more-writing-title">{{ .Title }}</span>
+      </a>
+      {{ end }}
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}

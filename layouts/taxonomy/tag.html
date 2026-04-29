@@ -1,0 +1,17 @@
+{{ define "main" }}
+<div class="page-wrap topics-wrap">
+  <div class="section-label">Topics</div>
+
+  {{ range .Site.Taxonomies.tags.ByCount }}
+  <div class="topic-group">
+    <div class="topic-group-label">
+      {{ .Page.Title }}
+      <span class="topic-post-count">{{ .Count }} {{ if eq .Count 1 }}post{{ else }}posts{{ end }}</span>
+    </div>
+    {{ range .Pages }}
+      {{ partial "post-row.html" . }}
+    {{ end }}
+  </div>
+  {{ end }}
+</div>
+{{ end }}

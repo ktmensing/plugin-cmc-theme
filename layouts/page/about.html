@@ -1,0 +1,45 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="single-wrap">
+    <div class="section-label">About</div>
+
+    <div class="about-header">
+      <img src="{{ "img/cmc-mascot.png" | relURL }}" alt="{{ .Site.Params.authorName | default "Kyle Mensing" }}" class="about-avatar">
+      <div>
+        <h1 class="about-name">{{ .Site.Params.authorName | default "Kyle Mensing" }}</h1>
+        <div class="about-role">{{ .Site.Params.authorRole | default "GTM &amp; GA4 specialist" }} · <a href="https://mensing.digital" target="_blank" rel="noopener">mensing.digital</a></div>
+      </div>
+    </div>
+
+    <div class="about-body">
+      {{ .Content }}
+    </div>
+
+    <div class="yellow-rule"></div>
+
+    <div class="credentials-grid">
+      <div class="credential-card">
+        <div class="credential-title">GTM Implementation</div>
+        <div class="credential-sub">Containers built, audited, fixed</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-title">GA4 Setup</div>
+        <div class="credential-sub">Event schemas, conversions, audiences</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-title">Consent Mode v2</div>
+        <div class="credential-sub">Compliant + measurement-preserving</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-title">Team Training</div>
+        <div class="credential-sub">Own your stack — no dev dependency</div>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <a href="https://mensing.digital" target="_blank" rel="noopener" class="btn-yellow">mensing.digital ↗</a>
+      <a href="{{ "/subscribe/" | relURL }}" class="btn-outline">Subscribe to the newsletter →</a>
+    </div>
+  </div>
+</div>
+{{ end }}

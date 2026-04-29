@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="page-wrap">
+  <div class="list-header">
+    <div class="section-label">{{ if .IsHome }}Writing{{ else if eq .Kind "term" }}Topic{{ else }}Archive{{ end }}</div>
+    {{ if not .IsHome }}
+    <h1 class="list-title">{{ .Title }}</h1>
+    {{ end }}
+  </div>
+
+  {{ range .Pages.GroupByDate "2006" }}
+    <div class="year-group">
+      <span class="year-label">{{ .Key }}</span>
+    </div>
+    {{ range .Pages }}
+      {{ partial "post-row.html" . }}
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

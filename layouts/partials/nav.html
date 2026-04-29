@@ -1,0 +1,27 @@
+{{ $isHome    := .IsHome }}
+{{ $isTopics  := or (eq .Kind "taxonomy") (eq .Kind "term") }}
+{{ $isAbout   := and (eq .Kind "page") (or (eq .Title "About") (eq .Slug "about")) }}
+<header>
+  <div class="nav-inner">
+    <a href="{{ "/" | relURL }}" class="nav-brand">
+      <svg width="20" height="20" viewBox="0 0 54 54" fill="none" aria-hidden="true">
+        <ellipse cx="27" cy="27" rx="20" ry="12" stroke="#0D0D0D" stroke-width="2.5"/>
+        <circle cx="27" cy="27" r="5.5" stroke="#0D0D0D" stroke-width="2.5"/>
+        <circle cx="27" cy="27" r="2.5" fill="#0D0D0D"/>
+        <line x1="16" y1="37" x2="13" y2="42" stroke="#0D0D0D" stroke-width="2"/>
+        <line x1="22" y1="40" x2="21" y2="45" stroke="#0D0D0D" stroke-width="2"/>
+        <line x1="32" y1="40" x2="33" y2="45" stroke="#0D0D0D" stroke-width="2"/>
+        <line x1="38" y1="37" x2="41" y2="42" stroke="#0D0D0D" stroke-width="2"/>
+      </svg>
+      <span class="nav-brand-text">Marketing map making — written by Kyle</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <ul class="nav-links">
+        <li><a href="{{ "/" | relURL }}"{{ if $isHome }} class="active"{{ end }}>Writing</a></li>
+        <li><a href="{{ "/tags/" | relURL }}"{{ if $isTopics }} class="active"{{ end }}>Topics</a></li>
+        <li><a href="{{ "/about/" | relURL }}"{{ if $isAbout }} class="active"{{ end }}>About</a></li>
+        <li><a href="{{ "/subscribe/" | relURL }}" class="nav-subscribe">Subscribe</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
