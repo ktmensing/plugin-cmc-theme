@@ -24,7 +24,7 @@
       </div>
     </div>
 
-    {{ $pool := where (where .Site.RegularPages "Type" "ne" "page") "Title" "ne" "" }}
+    {{ $pool := where (where .Site.RegularPages "Type" "post") "Title" "ne" "" }}
     {{ $others := first 3 (where $pool "Permalink" "ne" .Permalink) }}
     {{ if $others }}
     <div class="more-writing">
