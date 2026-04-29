@@ -81,6 +81,10 @@ header.scrolled {
   color: var(--black);
   letter-spacing: -0.01em;
 }
+@media (max-width: 600px) {
+  .nav-brand-text { display: none; }
+  .nav-links li:not(:last-child) { display: none; }
+}
 .nav-links {
   display: flex;
   align-items: center;
@@ -106,14 +110,16 @@ header.scrolled {
   font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 600;
-  color: var(--black);
+  color: var(--black) !important;
   background: var(--yellow);
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
   margin-left: 0.3rem;
+  white-space: nowrap;
+  line-height: 1.4;
   transition: background var(--ease);
 }
-.nav-subscribe:hover { background: var(--yellow-dark); color: var(--black); }
+.nav-subscribe:hover { background: var(--yellow-dark); }
 
 /* ---- PAGE WRAPPER ---- */
 .page-wrap {
@@ -133,7 +139,8 @@ header.scrolled {
 }
 .lede-wordmark {
   font-family: var(--font-display);
-  font-size: clamp(1.4rem, 3vw, 2rem);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 400;
   color: var(--black);
   letter-spacing: -0.01em;
   line-height: 1;
